@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>LIAM HERRMANN Most Disliked places</title><link rel="stylesheet" href="style.css"></head>
+<script>
+  var sav = localStorage.getItem("currentTheme");
+  if (sav) {
+    fetch("theme.json")
+      .then(function(res) { return res.json(); })
+      .then(function(d) {
+        var changed = d[sav];
+        document.getElementById("page").style.backgroundColor = changed.bg;
+        document.getElementById("page").style.color = changed.text;
+      });
+  }
+</script>
+<body id="page">
+  <header><h1>LIAM HERRMANN's Most Disliked Places</h1></header>
+  <nav>
+    <a href="info.html">ON EARTH</a> |
+    <a href="page2.html">IN BURLINGTON</a> |
+    <a href="page3.html">IN THE USA</a> |
+    <a href="page4.html">FORMAL COMPLAINTS</a> |
+    <a href="page5.html">THEME SWITCHER</a>
+  </nav>
+    
+  <hr>
+  <section>
+    <h2>Theme</h2>
+    <p>You swiched the theme <span id="themeswitch"></span> times!</p>
+    <!-- three buttons to switch themes, each button calls the applyTheme function with a different theme name -->
+    <button onclick="applyTheme('light')">Light</button>
+    <button onclick="applyTheme('dark')">Dark</button>
+    <button onclick="applyTheme('blue')">Blue</button>
+
+  </section>
+<!-- the script for the theme switcher, it fetches the theme data from theme.json and applies it to the page, it saves the current theme and the number of times the theme has been switched in localStorage -->
+  <script>
+    var themes = JSON.parse(localStorage.getItem("themes")) || {};
+    var count = Number(localStorage.getItem("themeswitch")) || 0;
+
+    function applyTheme(name) {
+      fetch("theme.json")
+        .then(function(res) { return res.json(); })
+        .then(function(d) {
+          var theme = d[name];
+          document.getElementById("page").style.backgroundColor = theme.bg;
+          document.getElementById("page").style.color = theme.text;
+          localStorage.setItem("currentTheme", name);
+
+          count = count + 1;
+          localStorage.setItem("themeswitch", count);
+          document.getElementById("themeswitch").textContent = count;
+        });
+    }
+    //saves to the local storage the current theme and the number of times the theme has been switched, it also applies the saved theme when the page loads
+    var saved = localStorage.getItem("currentTheme");
+    if (saved) { applyTheme(saved); }
+    document.getElementById("themeswitch").textContent = count;
+</script>
+
+  <footer><p>2026 LIAM HERRMANN</p></footer>
+
+</body>
+</html>

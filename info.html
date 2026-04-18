@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head><title>LIAM HERRMANN Most Disliked places</title><link rel="stylesheet" href="style.css"></head>
+<!-- #theme swicher is the same on everypage -->
+<script>
+  var sav = localStorage.getItem("currentTheme");
+  if (sav) {
+    fetch("theme.json")
+      .then(function(res) { return res.json(); })
+      .then(function(d) {
+        var changed = d[sav];
+        document.getElementById("page").style.backgroundColor = changed.bg;
+        document.getElementById("page").style.color = changed.text;
+      });
+  }
+</script>
+<body id="page">
+  <header><h1>LIAM HERRMANN's Most Disliked Places</h1></header>
+  <!-- nav for navigation is the same on everypage -->
+  <nav>
+    <a href="info.html">ON EARTH</a> |
+    <a href="page2.html">IN BURLINGTON</a> |
+    <a href="page3.html">IN THE USA</a> |
+    <a href="page4.html">FORMAL COMPLAINTS</a> |
+    <a href="page5.html">THEME SWITCHER</a>
+  </nav>
+  <hr>
+  <section>
+    <h2>Welcome</h2>
+    <p>Welcome to my website about the most disliked places on Earth, in Burlington, and in the USA. I will also be allowing for some formal complaints about me and a theme switcher for the website.</p>
+  </section>
+  <!-- list of places I dont like -->
+  <section>
+            <h2>Some places I dislike</h2>
+            <ol>
+                <li>Paris, France</li>
+                <li>My old Doctors office</li>
+                <li>The pizza place by my house at home</li>
+                <li>Fort Lauderdale, USA</li>
+                <li>the middle seat on an airplane</li>
+                <li>The roads during winter </li>
+                <li>Parking Garages</li>
+                <li>The Apple Store</li>
+            </ol>
+        </section>
+
+
+
+  
+    <!--the same on every page -->
+  <footer><p>2026 LIAM HERRMANN</p></footer>
+</body>
+</html>

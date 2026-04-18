@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>LIAM HERRMANN Most Disliked places</title><link rel="stylesheet" href="style.css"></head>
+<body id="page">
+  <header><h1>LIAM HERRMANN's Most Disliked Places</h1></header>
+  <nav>
+    <a href="info.html">ON EARTH</a> |
+    <a href="page2.html">IN BURLINGTON</a> |
+    <a href="page3.html">IN THE USA</a> |
+    <a href="page4.html">FORMAL COMPLAINTS</a> |
+    <a href="page5.html">THEME SWITCHER</a>
+  </nav>
+    <h1>Thank you for your submission!</h1>
+    <p>Your complaint has been received and will be reviewed by our team. We appreciate your feedback and will do our best to address your concerns.</p>
+    <p>Here is a summary of your submission:</p>
+    <!-- Displaces as a list-->
+    <ul>
+        <li><strong>Name:</strong> <span id="name"></span></li>
+        <li><strong>Page:</strong> <span id="flavor"></span></li>
+        <li><strong>Feeling:</strong> <span id="feeling"></span></li>
+        <li><strong>Consequences:</strong> <span id="consequences"></span></li>
+        <li><strong>Special Instructions:</strong> <span id="special_instructions"></span></li>
+    </ul>
+    <script>
+        //Get the query parameters from the URL and display them on the page
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById("name").textContent = params.get("name");
+        document.getElementById("flavor").textContent = params.get("flavor");
+        document.getElementById("feeling").textContent = params.get("d");
+        document.getElementById("consequences").textContent = Array.from(params.getAll("Fine")).join(", ");
+        document.getElementById("special_instructions").textContent = params.get("special_instructions");
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head><title>LIAM HERRMANN Most Disliked places</title><link rel="stylesheet" href="style.css"></head>
+<script>
+  var sav = localStorage.getItem("currentTheme");
+  if (sav) {
+    fetch("theme.json")
+      .then(function(res) { return res.json(); })
+      .then(function(d) {
+        var changed = d[sav];
+        document.getElementById("page").style.backgroundColor = changed.bg;
+        document.getElementById("page").style.color = changed.text;
+      });
+  }
+</script>
+<body id="page">
+  <header><h1>LIAM HERRMANN's Most Disliked Places</h1></header>
+  <nav>
+    <a href="info.html">ON EARTH</a> |
+    <a href="page2.html">IN BURLINGTON</a> |
+    <a href="page3.html">IN THE USA</a> |
+    <a href="page4.html">FORMAL COMPLAINTS</a> |
+    <a href="page5.html">THEME SWITCHER</a>
+  </nav>
+  <hr>
+    <!--made a cool click box that hides the content until you click it and then it shows the content and you can click it again to hide the content-->
+  <section style="text-align: center; margin-top: 40px;">
+    <div id="clickBox" onclick="reveal()" style="
+      display: inline-block;
+      padding: 60px 80px;
+      border: 3px solid #ccc;
+      font-size: 50px;">LETS SEE WHAT IT IS!</div>
+
+    <div id="hidden" style="display: none; margin-top: 30px;">
+      <h2>THE TACO BELL ON AYER ROAD IN AYER MA</h2>
+      <p>Back in the day I used to frequent this Taco Bell, but the inside was always closed to the public after 10 PM</p>
+      <p>So I had to settle for the drive-thru, but one day I wanted to go inside...</p>
+      <img src="photos/tacobell.jpg" style="max-width: 300px; border-radius: 10px;">
+      <img src="photos/tacobell tuff.jpg" style="max-width: 300px; border-radius: 10px;">
+
+      <p>BUT THEN THEY BANNED ME FOR TRYING TO JUMP THROUGH THE DRIVE THROUGH WINDOW AND EAT AT PEACE</p>
+      
+    </div>
+  </section>
+<!--my reveal function works with the click box by toggling the display style of the hidden div -->
+  <script>
+    function reveal() {
+      var box = document.getElementById("clickBox");
+      var hidden = document.getElementById("hidden");
+      if (hidden.style.display === "none") {
+          hidden.style.display = "block";
+          box.textContent = "click again to hide!";
+      }
+      else {
+        hidden.style.display = "none";
+        box.textContent = "click again!";
+      }
+    }
+
+    
+  </script>
+    <footer><p>2026 LIAM HERRMANN</p></footer>
+
+</body>
+</html>

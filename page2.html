@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head><title>LIAM HERRMANN Most Disliked places</title><link rel="stylesheet" href="style.css"></head>
+<script>
+  var sav = localStorage.getItem("currentTheme");
+  if (sav) {
+    fetch("theme.json")
+      .then(function(res) { return res.json(); })
+      .then(function(d) {
+        var changed = d[sav];
+        document.getElementById("page").style.backgroundColor = changed.bg;
+        document.getElementById("page").style.color = changed.text;
+      });
+  }
+</script>
+<body id="page">
+  <header><h1>LIAM HERRMANN's Most Disliked Places</h1></header>
+  <nav>
+    <a href="info.html">ON EARTH</a> |
+    <a href="page2.html">IN BURLINGTON</a> |
+    <a href="page3.html">IN THE USA</a> |
+    <a href="page4.html">FORMAL COMPLAINTS</a> |
+    <a href="page5.html">THEME SWITCHER</a>
+  </nav>
+  <hr>
+       <!-- #table I took from my first project and just filled in -->
+    <section>
+            <h2>Dislikes in BURLINGTON</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>FOOD</td>
+                        <td>MR.MIKES - Pizannos is way better</td>
+                    </tr>
+                    <tr>
+                        <td>BUSINESS</td>
+                        <td>CHASE BANK - Hounding me over paying my Credit Card AKA free money</td>
+                    </tr>
+                    <tr>
+                        <td>ROAD</td>
+                        <td>MAIN ST - Too much traffic </td>
+                    </tr>
+                    <tr>
+                        <td>DRINK</td>
+                        <td>TRASHCAN - Rasputins Bar and Grill </td>
+                    </tr>
+                    <tr>
+                        <td>BUILDING</td>
+                        <td>CONVERSE HALL - I saw a GHOST </td>
+                    </tr>
+                    <tr>
+                        <td>UTILITY COMPANY</td>
+                        <td>BURLINGTON TELECOM - Wrote my Email wrong when I signed up and didnt send me a bill for 4 months and turned off my INTERNET</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    <footer><p>2026 LIAM HERRMANN</p></footer>
+
+</body>
+
+</html>

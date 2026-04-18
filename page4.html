@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>LIAM HERRMANN Most Disliked places</title><link rel="stylesheet" href="style.css"></head>
+<script>
+  var sav = localStorage.getItem("currentTheme");
+  if (sav) {
+    fetch("theme.json")
+      .then(function(res) { return res.json(); })
+      .then(function(d) {
+        var changed = d[sav];
+        document.getElementById("page").style.backgroundColor = changed.bg;
+        document.getElementById("page").style.color = changed.text;
+      });
+  }
+</script>
+<!-- Form validation script, works by using the preventDefault() method to check if the text box is empty and returning an alert-->
+<script>
+  function validateForm(e) {
+    var name = document.getElementById("name").value.trim();
+    if (name === "") {
+      e.preventDefault();
+      alert("Please enter your name!");
+      return false;
+    }
+    return true;
+  }
+</script>
+
+<body id="page">
+  <header><h1>LIAM HERRMANN's Most Disliked Places</h1></header>
+  <nav>
+    <a href="info.html">ON EARTH</a> |
+    <a href="page2.html">IN BURLINGTON</a> |
+    <a href="page3.html">IN THE USA</a> |
+    <a href="page4.html">FORMAL COMPLAINTS</a> |
+    <a href="page5.html">THEME SWITCHER</a>
+  </nav>
+    
+  <hr>
+    <h1>Upset about what you read?</h1>
+    <h2>Submit a formal complaint here:</h2>
+    <p>We take all complaints seriously and will do our best to address your concerns.</p>
+
+    <form id="complaintForm" action="conformation.html" onsubmit="return validateForm(event)">
+
+      <br>
+      <br> 
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required />
+<!-- I used the code from the lab assignment and I only changed as little as possible -->
+  <br> 
+    <hr>
+    <label for="flavor">Choose a Page:</label>
+  <select id="flavor" name = "flavor" required>
+    <option selected value="On Earth">On Earth</option>
+    <option value="In Burlington">In Burlington</option>
+    <option value="In the USA">In the USA</option>
+  </select>
+
+  <!-- two radio buttons under the same name -->
+  <p>how did it make you feel?:</p>
+  <!-- My radio inputs are here -->
+<label>
+  <input type="radio" name="d" value="good">good
+</label>
+  <label>
+    <input type="radio" name="d" value="bad"> bad
+  </label>
+  <label>
+    <input type="radio" name="d" value="angry"> angry
+  </label>
+  <label>
+    <input type="radio" name="d" value="attacked"> attacked
+  </label>
+  
+
+<br>
+<hr>
+
+  <p>What should happen to Liam for his bad opinions?</p>
+  <!--  checkbox inputs from the lab but modified for my assignment -->
+    <label>
+        <input type="checkbox" name="Fine" value="Jail 1 year"> Jail 1 year
+    </label>
+    <label>
+        <input type="checkbox" name="Fine" value="Jail for LIFE"> Jail for LIFE 
+    </label>
+    <label>
+        <input type="checkbox" name="Fine" value="A fine of $100,000"> Get a fine of $100,000
+    </label>
+    <label>
+        <input type="checkbox" name="Fine" value="A fine of $100,000,000"> Get a fine of $100,000,000
+    </label>
+    <label>
+        <input type="checkbox" name="Fine" value="Give him a million dollars to stop complaining"> Give him a million dollars to stop complaining
+    </label>
+    <br>
+    <hr>
+<label for="special_instructions">Explain your reasoning:</label>
+  <textarea id="special_instructions" name="EXPLINATION"></textarea>
+<br>
+<hr>
+
+  <button type="submit">Submit</button>
+  
+  
+
+
+</form>
+  <footer><p>2026 LIAM HERRMANN</p></footer>
+
+</body>
+</html>
